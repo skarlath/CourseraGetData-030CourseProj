@@ -14,8 +14,9 @@ activities <- read.table("activity_labels.txt", col.names = c("act_id","activity
 features <- read.table("features.txt", col.names = c("var_id","Feature_Variable"), stringsAsFactors = FALSE)
 ```
 
-###Next we read the Training Data
+##Next we read the Training Data
 
+```
 ##We check the number of observations in the data set
 TrainingRows <- nrow(read.table("train//subject_train.txt"))
 
@@ -35,9 +36,12 @@ tr_Y <- read.table("train//y_train.txt", row.names = paste("tr", seq(1, Training
 tr_XY <- merge( tr_X, tr_Y, by=0)
 tr_XYSubj <- merge( tr_XY, tr_subject, by.x=1, by.y=0)
 tr_FullMerged <- merge(tr_XYSubj, activities, by.x=563, by.y=1)
+```
+
 
 ##Next we read the Test Data
 
+```
 ##We check the number of observations in the data set
 TestRows <- nrow(read.table("test//subject_test.txt"))
 
@@ -58,9 +62,12 @@ tt_Y <- read.table("test//y_test.txt", row.names = paste("tt", seq(1, TestRows),
 tt_XY <- merge( tt_X, tt_Y, by=0)
 tt_XYSubj <- merge( tt_XY, tt_subject, by.x=1, by.y=0)
 tt_FullMerged <- merge(tt_XYSubj, activities, by.x=563, by.y=1)
+```
 
 
+##Preform cleaning operations and get our relevant columns
 
+```
 ##Combine the Test and Training data into one
 allData <- rbind(tt_FullMerged, tr_FullMerged)
 
@@ -79,8 +86,12 @@ names(relData)<-gsub("Mag", "Magnitude", names(relData))
 names(relData)<-gsub("^t", "time", names(relData))
 names(relData)<-gsub("^f", "frequency", names(relData))
 names(relData)<-gsub("BodyBody", "Body", names(relData))
+```
+
+##Get the aggregate datasets
 
 
+```
 ##Load plyr and preform the aggregate operations to get the mean for each Subject/Activity Pair
 library(plyr)
 aggData <- aggregate(. ~Subject_ID + activity, relData, mean)
@@ -88,4 +99,4 @@ aggData <- aggData[order(aggData$Subject_ID,aggData$activity),]
 
 ##Write it to a file for sharing
 write.table(aggData, file = "tidyaggregatedata.txt", row.name=FALSE)
-
+```
