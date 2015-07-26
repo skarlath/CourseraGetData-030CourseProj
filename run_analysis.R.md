@@ -1,18 +1,20 @@
 
-##Script for tidying up the data from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+#Script for tidying up the data from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
 
 
 ##First we read in the shared variable sets
 
+'''
 ##activities will store the activity id (act_id) and the activity name (activity)
 activities <- read.table("activity_labels.txt", col.names = c("act_id","activity"), stringsAsFactors = FALSE)
 
 ##features will store the feature variable id (var_id) and the feature variable name (Feature_Variable)
 features <- read.table("features.txt", col.names = c("var_id","Feature_Variable"), stringsAsFactors = FALSE)
+'''
 
-##Next we read the Training Data
+###Next we read the Training Data
 
 ##We check the number of observations in the data set
 TrainingRows <- nrow(read.table("train//subject_train.txt"))
