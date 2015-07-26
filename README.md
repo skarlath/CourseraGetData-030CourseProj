@@ -103,13 +103,13 @@ Dataset Columns (variables)
  * frequencyBodyGyroscopeJerkMagnitude-std()     : num  
 
 ##Column Naming information
-*time prefix denotes time domain signals
-*frequency prefix denotes frequency domain signals
-*Gravity denotes derived gravitational acceleration signals
-*Body denotes derived body acceleration signals
-*Body Linear acceleration and body angular velocity were derived in time to obtain Jerk signals
-*XYZ variables are calculated from the signal vectors
-*mean denotes Mean Value
-*std denotes Standard deviation
+* time prefix denotes time domain signals
+* frequency prefix denotes frequency domain signals
+* Gravity denotes derived gravitational acceleration signals
+* Body denotes derived body acceleration signals
+* Body Linear acceleration and body angular velocity were derived in time to obtain Jerk signals
+* XYZ variables are calculated from the signal vectors
+* mean denotes Mean Value
+* std denotes Standard deviation
 
 
