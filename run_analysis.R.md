@@ -6,13 +6,13 @@
 
 ##First we read in the shared variable sets
 
-'''
+```
 ##activities will store the activity id (act_id) and the activity name (activity)
 activities <- read.table("activity_labels.txt", col.names = c("act_id","activity"), stringsAsFactors = FALSE)
 
 ##features will store the feature variable id (var_id) and the feature variable name (Feature_Variable)
 features <- read.table("features.txt", col.names = c("var_id","Feature_Variable"), stringsAsFactors = FALSE)
-'''
+```
 
 ###Next we read the Training Data
 
