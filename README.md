@@ -3,7 +3,7 @@ Course Project For GetData-030
 
 To run the script:
 
-```
+```R
 ##Ensure that the working directory contains the following before running:
 ##activity_labels.txt
 ##features.txt
@@ -21,7 +21,7 @@ source("run_analysis.R")
 ###Note that the zip file unpacks to the correct directory structure
 
 
-```
+```R
 ##Output file tidyaggregatedata.txt
 ```
 

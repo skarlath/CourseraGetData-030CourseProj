@@ -6,7 +6,7 @@
 
 ##First we read in the shared variable sets
 
-```
+```R
 ##activities will store the activity id (act_id) and the activity name (activity)
 activities <- read.table("activity_labels.txt", col.names = c("act_id","activity"), stringsAsFactors = FALSE)
 
@@ -16,7 +16,7 @@ features <- read.table("features.txt", col.names = c("var_id","Feature_Variable"
 
 ##Next we read the Training Data
 
-```
+```R
 ##We check the number of observations in the data set
 TrainingRows <- nrow(read.table("train//subject_train.txt"))
 
@@ -41,7 +41,7 @@ tr_FullMerged <- merge(tr_XYSubj, activities, by.x=563, by.y=1)
 
 ##Next we read the Test Data
 
-```
+```R
 ##We check the number of observations in the data set
 TestRows <- nrow(read.table("test//subject_test.txt"))
 
@@ -67,7 +67,7 @@ tt_FullMerged <- merge(tt_XYSubj, activities, by.x=563, by.y=1)
 
 ##Preform cleaning operations and get our relevant columns
 
-```
+```R
 ##Combine the Test and Training data into one
 allData <- rbind(tt_FullMerged, tr_FullMerged)
 
@@ -91,7 +91,7 @@ names(relData)<-gsub("BodyBody", "Body", names(relData))
 ##Get the aggregate datasets
 
 
-```
+```R
 ##Load plyr and preform the aggregate operations to get the mean for each Subject/Activity Pair
 library(plyr)
 aggData <- aggregate(. ~Subject_ID + activity, relData, mean)
